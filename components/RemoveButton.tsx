@@ -1,20 +1,25 @@
-import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import React, {useState} from 'react';
+import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default function RemoveButton() {
+    const [count, setCount] = useState(0);
+    const onPress = () => setCount(prevCount => prevCount + 1);
+
     return (
         <View style={styles.container}>
-            <Image
-                style={{ width: 100, height: 100 }}
-                source={require('./images/minus-sign-icon-6.png')}
-            />
+            <TouchableOpacity onPress={onPress}>
+                <Image
+                    style={{ width: 125, height: 125 }}
+                    source={require('./images/minus-sign-icon-6.png')}
+                />
+            </TouchableOpacity>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 20,
-        alignItems: 'flex-end'
+        paddingTop: '1.5%',
+        paddingHorizontal: '45%'
     },
 })

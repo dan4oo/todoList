@@ -1,37 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, ProgressViewIOSComponent } from 'react-native';
 import AddButton from './components/AddButton';
+import Test from './components/Test';
 import Tasks from './components/Tasks';
 
 export default function App() {
+  const addTask = () => {
+
+  }
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View>
-        <Text style={styles.title}>Today's Tasks</Text>
+        <Text style={styles.title}>Today's Tasks </Text>
         <View style={styles.line} />
-        <Tasks />
-        <Tasks />
-        <Tasks />
-        <AddButton />
+        <View style={styles.items}>
+          <Tasks />
+          <Tasks />
+          <Tasks />
+        </View>
+        <View style={styles.button}>
+          <AddButton />
+        </View>
         <StatusBar style="auto" />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffff',
+    backgroundColor: '#E8EAED',
     paddingTop: 70,
     paddingHorizontal: 20,
   },
   title: {
+    fontFamily: 'AmericanTypewriter',
     fontSize: 50,
     fontWeight: 'bold',
   },
   line: {
     borderBottomColor: 'black',
     borderBottomWidth: 3,
-  }
+  },
+  button: {
+    alignItems: 'center'
+  },
+  items: {},
 });
